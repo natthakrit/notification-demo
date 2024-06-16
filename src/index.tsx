@@ -7,6 +7,19 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+// src/index.js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then(function(registration) {
+      console.log('Service Worker registration successful with scope: ', registration.scope);
+    })
+    .catch(function(err) {
+      console.log('Service Worker registration failed: ', err);
+    });
+}
+
+
 root.render(
   <React.StrictMode>
     <App />
