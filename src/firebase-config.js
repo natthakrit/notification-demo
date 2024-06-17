@@ -23,7 +23,7 @@ const vapidKey = 'BOqZSSYu8k2Rw_NA4tvLgfos189dGKNm2DF4ba-7iMVzpF8YKzLp_XLt8hZ77t
 export const requestForToken = () => {
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
-      getToken(messaging, { vapidKey: vapidKey })
+      getToken(messaging, { vapidKey: 'BOqZSSYu8k2Rw_NA4tvLgfos189dGKNm2DF4ba-7iMVzpF8YKzLp_XLt8hZ77tAbwAdUHJEh3VpfxlXllcUR53w' })
         .then((currentToken) => {
           if (currentToken) {
             console.log('current token for client: ', currentToken);
@@ -44,15 +44,6 @@ export const requestForToken = () => {
   });
 };
 
-
-onTokenRefresh(() => {
-  getToken(messaging, { vapidKey: vapidKey }).then((refreshedToken) => {
-    console.log('Token refreshed.');
-    // ส่ง refreshed token ไปยังเซิร์ฟเวอร์ของคุณเพื่อแทนที่ token เดิม
-  }).catch((err) => {
-    console.log('Unable to retrieve refreshed token ', err);
-  });
-});
 
 // //promise ถูกเรียกใช้เพียงครั้งเดียว
 // export const onMessageListener = () =>
